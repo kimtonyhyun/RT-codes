@@ -7,10 +7,11 @@
 %   hSI.hIntegrationRoiManager.postProcessFcn = @integrationPostProcessingFcn_test1c;
 %
 function integrationValues = integrationPostProcessingFcn_test1c(rois,integrationDone,arrayIndices,integrationValueHistory,integrationTimestampHistory,integrationFrameNumberHistory)
-% TEST1B:
+% TEST1C:
 %   - RT clk changes state on every processed frame
 %   - Cycle through the 5 output classes on every processed frame
 %   - Direct control of vDAQ TTL outputs
+%   - Log decoder results via modified IntegrationRoiManager
 
 persistent hDigitalOutputs hIntegrationRoiManager
 
