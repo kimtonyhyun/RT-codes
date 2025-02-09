@@ -3,7 +3,7 @@
 %   - For main display, set Rolling average factor = 1
 %
 % SET UP REAL-TIME CALLBACK
-%   hSI.hIntegrationRoiManager.integrationHistoryLength = 15000;
+%   hSI.hIntegrationRoiManager.integrationHistoryLength = 45000;
 %   hSI.hIntegrationRoiManager.postProcessFcn = @integrationPostProcessingFcn_test1c;
 %
 function integrationValues = integrationPostProcessingFcn_test1c(rois,integrationDone,arrayIndices,integrationValueHistory,integrationTimestampHistory,integrationFrameNumberHistory)
