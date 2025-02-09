@@ -14,20 +14,20 @@ function integrationValues = integrationPostProcessingFcn_test3c(rois,integratio
 %   - Direct control of vDAQ TTL outputs
 %   - Log decoder results via modified IntegrationRoiManager
 
-persistent init_done hDigitalOutputs hIntegrationRoiManager
+persistent hDigitalOutputs hIntegrationRoiManager
 
 % One-time setup of persistent variables
 %------------------------------------------------------------
-if isempty(init_done)
+if isempty(hDigitalOutputs)
     vDAQ = '/vDAQ0/';
     ports = {'D0.6', 'D0.7', 'D1.4', 'D1.6', 'D1.7', 'D1.5'}; % LL, L, 0, R, RR, RT_clk
 
     fullnames = strcat(vDAQ, ports);
     hDigitalOutputs = dabs.resources.ResourceStore.filterByNameStatic(fullnames);
+end
 
+if isempty(hIntegrationRoiManager)
     hIntegrationRoiManager = dabs.resources.ResourceStore.filterByNameStatic('SI IntegrationRoiManager');
-
-    init_done = true;
 end
 
 % Calculate DF/F values
